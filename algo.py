@@ -1,4 +1,3 @@
-import networkx as nx
 from copy import deepcopy
 
 class Rank:
@@ -56,7 +55,7 @@ class SPA:
         self.project_capacities = project_capacities
         self.lecturer_capacities = lecturer_capacities
 
-        self.R = max([len(preference) for preference in preferences.values()])
+        self.R = max(len(preference) for preference in preferences.values())
         self.f = {}
 
     @property
@@ -69,7 +68,7 @@ class SPA:
 
     @property
     def active_students(self):
-        return [student for student in students if self.f[('src', student)] > 0]
+        return [student for student in self.students if self.f[('src', student)] > 0]
 
     def get_rank(self, student, project):
         if project not in self.preferences[student]:
@@ -89,10 +88,10 @@ class SPA:
                 return lecturer
 
     def reset(self):
-        self.f = {('src', s): 0 for s in students}
-        self.f.update({(p, l): 0 for l, projects in lecturers_projects.items() for p in projects})
-        self.f.update({(l, 'dst'): 0 for l in lecturer_capacities})
-        self.f.update({(s, p): 0 for s in students for p in preferences[s]})
+        self.f = {('src', s): 0 for s in self.students}
+        self.f.update({(p, l): 0 for l, projects in self.lecturers_projects.items() for p in projects})
+        self.f.update({(l, 'dst'): 0 for l in self.lecturer_capacities})
+        self.f.update({(s, p): 0 for s in self.students for p in self.preferences[s]})
 
 
 
@@ -139,7 +138,9 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
 
             for project in I.lecturers_projects[lecturer]:
 
-                if I.f[(project, lecturer)] < I.project_capacities[project] and rho[project] > sigma:
+                if I.f[(project, lecturer)] < I.project_capacities[project] and\
+                 rho[project] > sigma:
+
                     sigma = rho[project]
                     best_project = project
 
@@ -159,7 +160,9 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
 
         lecturer = I.get_lecturer(project)
 
-        if I.f[(project, lecturer)] < I.project_capacities[project] and I.f[(lecturer, 'dst')] < I.lecturer_capacities[lecturer] and rho[project] > max_profile:
+        if I.f[(project, lecturer)] < I.project_capacities[project] and \
+         I.f[(lecturer, 'dst')] < I.lecturer_capacities[lecturer] and rho[project] > max_profile:
+
             max_profile = rho[project]
             best_project = project
 
@@ -180,7 +183,8 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
 
 def greedy_max_spa(I: 'SPA', flush=True):
 
-    I.reset()
+    if flush:
+        I.reset()
 
     while True:
         augmenting_path = get_max_aug(I)
