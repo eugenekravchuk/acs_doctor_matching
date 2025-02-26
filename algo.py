@@ -151,7 +151,6 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
                         rho[project] = sigma
                         pred[project] = lecturer
                         pred[lecturer] = best_project
-                        print(best_project, lecturer, project, '|', pred[project], pred[lecturer], pred[best_project])
 
     max_profile = Rank(I.R, float('-inf'))
     best_project = None
@@ -173,11 +172,6 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
     while current in pred and pred[current] is not None:
         path = [current] + path
         current = pred[current]
-        if current in pred and pred[current] and pred[current] in pred and pred[pred[current]] == current:
-            print(current, pred[current], pred[pred[current]])
-            exit()
-
-
 
     path = [current] + path
     return path
@@ -190,7 +184,6 @@ def greedy_max_spa(I: 'SPA', flush=True):
 
     while True:
         augmenting_path = get_max_aug(I)
-        print(1)
 
         if not augmenting_path:
             break
@@ -240,12 +233,12 @@ def greedy_max_spa(I: 'SPA', flush=True):
 
 def lower_constraints_extension(I: 'SPA', lower_constraints: dict[str, int]):
     I.reset()
-    aux_I = deepcopy(I)
-    aux_I.lecturer_capacities = lower_constraints
+    I_aux = deepcopy(I)
+    I_aux.lecturer_capacities = lower_constraints
 
-    if len(greedy_max_spa(aux_I)) == sum(lower_constraints.values()):
-        I.f = aux_I.f
+    if len(greedy_max_spa(I_aux)) == sum(lower_constraints.values()):
+        I.f = I_aux.f
 
         return greedy_max_spa(I, False)
-    
+
     return None
