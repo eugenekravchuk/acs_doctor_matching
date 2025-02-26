@@ -1,4 +1,5 @@
 import networkx as nx
+from copy import deepcopy
 
 class Rank:
 
@@ -142,7 +143,7 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
                     sigma = rho[project]
                     best_project = project
 
-            if best_project is not None:
+            if best_project is not None and pred[best_project] != lecturer:
 
                 for project in I.lecturers_projects[lecturer]:
 
@@ -150,6 +151,7 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
                         rho[project] = sigma
                         pred[project] = lecturer
                         pred[lecturer] = best_project
+                        print(best_project, lecturer, project, '|', pred[project], pred[lecturer], pred[best_project])
 
     max_profile = Rank(I.R, float('-inf'))
     best_project = None
@@ -167,19 +169,28 @@ def get_max_aug(I: 'SPA') -> list[tuple[str, str]]:
 
     path = []
     current = best_project
+
     while current in pred and pred[current] is not None:
         path = [current] + path
         current = pred[current]
+        if current in pred and pred[current] and pred[current] in pred and pred[pred[current]] == current:
+            print(current, pred[current], pred[pred[current]])
+            exit()
+
+
 
     path = [current] + path
     return path
 
-def greedy_max_spa(I: 'SPA'):
+
+
+def greedy_max_spa(I: 'SPA', flush=True):
 
     I.reset()
 
     while True:
         augmenting_path = get_max_aug(I)
+        print(1)
 
         if not augmenting_path:
             break
@@ -203,6 +214,7 @@ def greedy_max_spa(I: 'SPA'):
                     I.f[(prev_project, lecturer)] -= 1
                     I.f[(lecturer, 'dst')] -= 1
 
+
                 I.f[(u, v)] = 1
 
             if u in I.projects and v in I.lecturers:
@@ -225,19 +237,15 @@ def greedy_max_spa(I: 'SPA'):
 
     return [(student, I.get_pair(student)) for student in I.active_students]
 
-students = {"Alice", "Bob", "Charlie"}
-lecturers_projects = {
-    "ProfX": {"Proj1", "Proj2"},
-    "ProfY": {"Proj3"}
-}
-preferences = {
-    "Alice": ("Proj1", "Proj2", "Proj3"),
-    "Bob": ("Proj1", "Proj3"),
-    "Charlie": ("Proj2", "Proj3")
-}
-project_capacities = {"Proj1": 1, "Proj2": 1, "Proj3": 1}
-lecturer_capacities = {"ProfX": 2, "ProfY": 1}
 
-spa_instance = SPA(students, lecturers_projects, preferences, project_capacities, lecturer_capacities)
+def lower_constraints_extension(I: 'SPA', lower_constraints: dict[str, int]):
+    I.reset()
+    aux_I = deepcopy(I)
+    aux_I.lecturer_capacities = lower_constraints
 
-print(greedy_max_spa(spa_instance))
+    if len(greedy_max_spa(aux_I)) == sum(lower_constraints.values()):
+        I.f = aux_I.f
+
+        return greedy_max_spa(I, False)
+    
+    return None
