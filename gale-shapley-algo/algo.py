@@ -1,7 +1,7 @@
 import pandas as pd
 from collections import defaultdict
 
-# Завантаження даних
+# Завантаження данихx
 doctors_df = pd.read_csv('doctors.csv')
 shifts_df = pd.read_csv('shifts.csv')
 
