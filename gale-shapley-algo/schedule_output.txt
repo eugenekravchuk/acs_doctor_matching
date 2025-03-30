@@ -1,0 +1,63 @@
+Cabinet: 530-філ3-рецепція
+  Shift: 1.1  -> Doctor: Легензова О. М.
+  Shift: 1.2  -> Doctor: Кудріна Н. Г.
+  Shift: 2.1  -> Doctor: Синишин Ю. І.
+  Shift: 2.2  -> Doctor: Лазаренко І.І.
+  Shift: 3.1  -> Doctor: Лук'янченко Н. Ю.
+  Shift: 3.2  -> Doctor: Кудріна Н. Г.
+  Shift: 4.1  -> Doctor: Кудріна Н. Г.
+  Shift: 4.2  -> Doctor: Легензова О. М.
+  Shift: 5.1  -> Doctor: Плющик Н.В.
+  Shift: 5.2  -> Doctor: Синишин Ю. І.
+  Shift: 6.1  -> Doctor: Іллюшина С. С.
+  Shift: 6.2  -> Doctor: Пелецька О.В.
+
+Cabinet: 531 - каб. лікаря
+  Shift: 1.1  -> Doctor: Слюсар Н.А.
+  Shift: 2.2  -> Doctor: Слюсар Н.А.
+  Shift: 3.1  -> Doctor: Пелецька О.В.
+  Shift: 3.2  -> Doctor: Слюсар Н.А.
+  Shift: 4.1  -> Doctor: Дуб А. І.
+  Shift: 4.2  -> Doctor: Синишин Ю. І.
+  Shift: 5.1  -> Doctor: Дуб А. І.
+  Shift: 5.2  -> Doctor: Дуб А. І.
+  Shift: 6.1  -> Doctor: Плющик Н.В.
+  Shift: 6.2  -> Doctor: Дуб А. І.
+
+Cabinet: 532 - стерилізаційна
+  Shift: 1.1  -> Doctor: Іллюшина С. С.
+  Shift: 2.2  -> Doctor: Плющик Н.В.
+  Shift: 3.1  -> Doctor: Лазаренко І.І.
+  Shift: 4.1  -> Doctor: Лук'янченко Н. Ю.
+  Shift: 4.2  -> Doctor: Лук'янченко Н. Ю.
+  Shift: 5.1  -> Doctor: Легензова О. М.
+  Shift: 6.1  -> Doctor: Кудріна Н. Г.
+  Shift: 6.2  -> Doctor: Лук'янченко Н. Ю.
+
+Cabinet: 536 - каб. лікаря гінеколога
+  Shift: 1.2  -> Doctor: Аль-Сехлі С. М.
+  Shift: 2.1  -> Doctor: Аль-Сехлі С. М.
+  Shift: 2.2  -> Doctor: Синишин Ю. І.
+  Shift: 5.1  -> Doctor: Аль-Сехлі С. М.
+  Shift: 6.2  -> Doctor: Аль-Сехлі С. М.
+
+Cabinet: 537 - каб. лікаря
+  Shift: 1.1  -> Doctor: Подоляк Т.М.
+  Shift: 4.2  -> Doctor: Подоляк Т.М.
+  Shift: 6.1  -> Doctor: Лазаренко І.І.
+  Shift: 6.2  -> Doctor: Лазаренко І.І.
+
+Cabinet: 538 - каб. лікаря
+  Shift: 1.1  -> Doctor: Дуб А. І.
+  Shift: 4.1  -> Doctor: Плющик Н.В.
+  Shift: 5.1  -> Doctor: Синишин Ю. І.
+  Shift: 6.1  -> Doctor: Лук'янченко Н. Ю.
+  Shift: 6.2  -> Doctor: Слюсар Н.А.
+
+Cabinet: 539 - каб. лікаря
+  Shift: 6.1  -> Doctor: Дуб А. І.
+  Shift: 6.2  -> Doctor: Легензова О. М.
+
+Cabinet: 541 - каб. лікаря
+  Shift: 6.1  -> Doctor: Слюсар Н.А.
+
