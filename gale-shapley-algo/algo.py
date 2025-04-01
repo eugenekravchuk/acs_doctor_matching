@@ -21,7 +21,7 @@ with open("../data/doctor_prefs.csv", encoding="utf-8") as f:
 # Load doctor specialties.
 # File format: doctor,specialty   (with specialty given as a list, e.g., "['Терапія']")
 doctor_specialties = {}
-with open("../data/doctor_specialities.csv", encoding="utf-8") as f:
+with open("../data/doctors_specialities.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
@@ -133,5 +133,19 @@ with open("schedule_output.txt", "w", encoding="utf-8") as out:
         for shift_code, doctor in schedule:
             out.write(f"  Shift: {shift_code:4} -> Doctor: {doctor}\n")
         out.write("\n")
+
+# === Calculate Doctor Happiness ===
+
+doctor_happiness = {}
+for doctor in doctors:
+    total_shifts = doctor_assigned_counts[doctor]
+    if total_shifts == 0:
+        doctor_happiness[doctor] = 0
+        continue
+
+    assigned_prefs = [pref for (cabinet, pref), doc in assignments.items() if doc == doctor]
+    happiness_score = sum(12 if pref in doctor_prefs[doctor][-2:] else 1 for pref in assigned_prefs)
+    doctor_happiness[doctor] = happiness_score / total_shifts
+
 
 print("Schedule written to schedule_output.txt")
