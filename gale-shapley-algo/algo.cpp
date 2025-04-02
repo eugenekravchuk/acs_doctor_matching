@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
+#include <unordered_set>
 #include <algorithm>
 
 struct Doctor {
@@ -32,6 +33,15 @@ std::unordered_map<std::string, Cabinet> cabinets;
 std::unordered_map<std::pair<std::string, std::string>, std::string, pair_hash> assignments;
 std::unordered_map<std::string, int> doctor_assigned_counts;
 std::unordered_map<std::string, int> doctor_current_index;
+std::vector<std::string> allShifts;
+
+void generateShifts() {
+    for (int day = 1; day <= 6; ++day) {
+        for (int shift = 1; shift <= 2; ++shift) {
+            allShifts.push_back(std::to_string(day) + "." + std::to_string(shift));
+        }
+    }
+}
 
 void loadDoctorPrefs(const std::string& filename) {
     std::ifstream file(filename);
@@ -78,6 +88,14 @@ void loadCabinetInfo(const std::string& filename) {
     }
 }
 
+void initializeAssignments() {
+    for (const auto& [cabId, _] : cabinets) {
+        for (const auto& shift : allShifts) {
+            assignments[{cabId, shift}] = ""; // Initially unassigned
+        }
+    }
+}
+
 void assignShifts() {
     bool progress = true;
     while (progress) {
@@ -91,11 +109,12 @@ void assignShifts() {
             std::string pref = doc.preferences[doctor_current_index[doctorName]++];
 
             for (auto& [cabId, cab] : cabinets) {
-                if (assignments.find({cabId, pref}) == assignments.end() &&
+                auto slot = std::make_pair(cabId, pref);
+                if (assignments[slot].empty() &&
                     std::any_of(cab.specialties.begin(), cab.specialties.end(), [&](const std::string& s) {
                         return std::find(doc.specialties.begin(), doc.specialties.end(), s) != doc.specialties.end();
                     })) {
-                    assignments[{cabId, pref}] = doctorName;
+                    assignments[slot] = doctorName;
                     doctor_assigned_counts[doctorName]++;
                     progress = true;
                     break;
@@ -105,19 +124,18 @@ void assignShifts() {
     }
 
     for (auto& [slot, assigned] : assignments) {
-        if (assigned.empty()) {
-            std::string cabId = slot.first;
-            std::string shiftCode = slot.second;
-            for (auto& [doctorName, doc] : doctors) {
-                if (doctor_assigned_counts[doctorName] >= doc.needed_shifts)
-                    continue;
-                if (std::any_of(cabinets[cabId].specialties.begin(), cabinets[cabId].specialties.end(), [&](const std::string& s) {
-                    return std::find(doc.specialties.begin(), doc.specialties.end(), s) != doc.specialties.end();
-                })) {
-                    assignments[slot] = doctorName;
-                    doctor_assigned_counts[doctorName]++;
-                    break;
-                }
+        if (!assigned.empty()) continue;
+        std::string cabId = slot.first;
+        std::string shiftCode = slot.second;
+        for (auto& [doctorName, doc] : doctors) {
+            if (doctor_assigned_counts[doctorName] >= doc.needed_shifts)
+                continue;
+            if (std::any_of(cabinets[cabId].specialties.begin(), cabinets[cabId].specialties.end(), [&](const std::string& s) {
+                return std::find(doc.specialties.begin(), doc.specialties.end(), s) != doc.specialties.end();
+            })) {
+                assignments[slot] = doctorName;
+                doctor_assigned_counts[doctorName]++;
+                break;
             }
         }
     }
@@ -127,6 +145,7 @@ void outputSchedule(const std::string& filename) {
     std::ofstream out(filename);
     std::map<std::string, std::vector<std::pair<std::string, std::string>>> schedule;
     for (auto& [slot, doctor] : assignments) {
+        if (doctor.empty()) continue;
         schedule[cabinets[slot.first].room].emplace_back(slot.second, doctor);
     }
     for (auto& [room, shifts] : schedule) {
@@ -139,12 +158,33 @@ void outputSchedule(const std::string& filename) {
     }
 }
 
-int main() {
-    loadDoctorPrefs("./data/doctors_schedule_160.csv");
-    loadDoctorSpecialties("./data/doctors_160.csv");
-    loadCabinetInfo("./data/rooms_80.csv");
+void runOneIteration(int iterId) {
+    doctors.clear();
+    cabinets.clear();
+    assignments.clear();
+    doctor_assigned_counts.clear();
+    doctor_current_index.clear();
+    allShifts.clear();
+
+    generateShifts();
+    loadDoctorPrefs("../../data/doctors_schedule_160.csv");
+    loadDoctorSpecialties("../../data/doctors_160.csv");
+    loadCabinetInfo("../../data/rooms_80.csv");
+    initializeAssignments();
     assignShifts();
-    outputSchedule("schedule_output.txt");
-    std::cout << "Schedule written to schedule_output.txt\n";
+
+    std::string outFile = "data/schedule_output_" + std::to_string(iterId) + ".txt";
+    outputSchedule(outFile);
+}
+
+int main() {
+    const int ITERATIONS = 1;
+
+    for (int i = 0; i < ITERATIONS; ++i) {
+        std::cout << "Running iteration " << i << "\n";
+        runOneIteration(i);
+    }
+
+    std::cout << "All schedules generated.\n";
     return 0;
 }
