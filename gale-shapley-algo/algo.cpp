@@ -140,9 +140,9 @@ void outputSchedule(const std::string& filename) {
 }
 
 int main() {
-    loadDoctorPrefs("../data/doctor_prefs.csv");
-    loadDoctorSpecialties("../data/doctors_specialities.csv");
-    loadCabinetInfo("../data/rooms_specialities.csv");
+    loadDoctorPrefs("./data/doctors_schedule_160.csv");
+    loadDoctorSpecialties("./data/doctors_160.csv");
+    loadCabinetInfo("./data/rooms_80.csv");
     assignShifts();
     outputSchedule("schedule_output.txt");
     std::cout << "Schedule written to schedule_output.txt\n";

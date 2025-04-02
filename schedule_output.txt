@@ -1,0 +1,317 @@
+Cabinet: 116 - каб. лікаря
+  Shift: 1.1 -> Doctor: Іваненко К. В.
+  Shift: 3.2 -> Doctor: Гнатюк О. О.
+  Shift: 6.1 -> Doctor: Петренко С. С.
+
+Cabinet: 154 - каб. лікаря
+  Shift: 1.1 -> Doctor: Коваль М. Ю.
+  Shift: 3.2 -> Doctor: Литвин К. В.
+  Shift: 4.1 -> Doctor: Литвин К. В.
+  Shift: 4.2 -> Doctor: Литвин К. В.
+  Shift: 5.1 -> Doctor: Ткаченко М. Ю.
+  Shift: 6.1 -> Doctor: Петренко О. О.
+  Shift: 6.2 -> Doctor: Ткаченко М. Ю.
+
+Cabinet: 165 - каб. лікаря
+  Shift: 1.1 -> Doctor: Іваненко О. О.
+  Shift: 1.2 -> Doctor: Гнатюк Я. М.
+  Shift: 2.2 -> Doctor: Романюк Н. Г.
+
+Cabinet: 186 - каб. лікаря
+  Shift: 1.1 -> Doctor: Петренко К. В.
+  Shift: 1.2 -> Doctor: Литвин І. І.
+  Shift: 3.2 -> Doctor: Петренко Я. М.
+  Shift: 4.1 -> Doctor: Мельник К. В.
+  Shift: 4.2 -> Doctor: Мельник К. В.
+  Shift: 5.1 -> Doctor: Петренко Н. Г.
+  Shift: 5.2 -> Doctor: Бондар А. М.
+  Shift: 6.1 -> Doctor: Бондар А. М.
+
+Cabinet: 207 - каб. лікаря
+  Shift: 1.2 -> Doctor: Петренко А. М.
+  Shift: 3.2 -> Doctor: Гнатюк І. І.
+  Shift: 4.1 -> Doctor: Гнатюк І. І.
+  Shift: 4.2 -> Doctor: Гнатюк І. І.
+  Shift: 6.1 -> Doctor: Бондар В. Т.
+
+Cabinet: 261 - каб. лікаря
+  Shift: 1.1 -> Doctor: Ткаченко Л. П.
+  Shift: 1.2 -> Doctor: Ткаченко Л. П.
+  Shift: 3.2 -> Doctor: Мельник А. М.
+  Shift: 4.2 -> Doctor: Ткаченко Л. П.
+  Shift: 5.1 -> Doctor: Ткаченко Л. П.
+  Shift: 5.2 -> Doctor: Ткаченко Л. П.
+  Shift: 6.1 -> Doctor: Ткаченко Л. П.
+
+Cabinet: 276 - каб. лікаря
+  Shift: 1.2 -> Doctor: Литвин А. М.
+  Shift: 2.1 -> Doctor: Мельник М. Ю.
+  Shift: 2.2 -> Doctor: Бондар О. О.
+  Shift: 3.1 -> Doctor: Іваненко І. І.
+  Shift: 3.2 -> Doctor: Литвин А. М.
+  Shift: 4.2 -> Doctor: Мельник М. Ю.
+  Shift: 5.1 -> Doctor: Іваненко І. І.
+  Shift: 5.2 -> Doctor: Литвин А. М.
+  Shift: 6.1 -> Doctor: Бондар О. О.
+  Shift: 6.2 -> Doctor: Мельник М. Ю.
+
+Cabinet: 298 - каб. лікаря
+  Shift: 1.2 -> Doctor: Гнатюк Л. П.
+  Shift: 3.1 -> Doctor: Гнатюк Л. П.
+  Shift: 5.2 -> Doctor: Гнатюк Л. П.
+
+Cabinet: 316 - каб. лікаря
+  Shift: 1.1 -> Doctor: Іваненко С. С.
+  Shift: 2.1 -> Doctor: Бондар М. Ю.
+  Shift: 2.2 -> Doctor: Бондар М. Ю.
+  Shift: 3.2 -> Doctor: Бондар М. Ю.
+  Shift: 4.1 -> Doctor: Бондар М. Ю.
+  Shift: 5.1 -> Doctor: Іваненко С. С.
+  Shift: 6.1 -> Doctor: Іваненко С. С.
+
+Cabinet: 325 - каб. лікаря
+  Shift: 1.1 -> Doctor: Ткаченко О. О.
+  Shift: 2.1 -> Doctor: Іваненко К. В.
+  Shift: 2.2 -> Doctor: Гнатюк О. О.
+  Shift: 3.1 -> Doctor: Петренко І. І.
+  Shift: 3.2 -> Doctor: Іваненко К. В.
+  Shift: 4.1 -> Doctor: Гнатюк О. О.
+  Shift: 4.2 -> Doctor: Гнатюк О. О.
+  Shift: 5.2 -> Doctor: Ткаченко О. О.
+  Shift: 6.1 -> Doctor: Мельник С. С.
+
+Cabinet: 326 - каб. лікаря
+  Shift: 1.1 -> Doctor: Романюк Н. Г.
+  Shift: 1.2 -> Doctor: Сидоренко І. І.
+  Shift: 2.1 -> Doctor: Гнатюк Я. М.
+  Shift: 2.2 -> Doctor: Романюк В. Т.
+  Shift: 3.1 -> Doctor: Гнатюк Я. М.
+  Shift: 3.2 -> Doctor: Гнатюк Я. М.
+  Shift: 4.2 -> Doctor: Сидоренко І. І.
+  Shift: 5.1 -> Doctor: Гнатюк Я. М.
+  Shift: 6.2 -> Doctor: Сидоренко І. І.
+
+Cabinet: 335 - каб. лікаря
+  Shift: 1.1 -> Doctor: Гнатюк Н. Г.
+  Shift: 1.2 -> Doctor: Бондар Н. Г.
+  Shift: 3.2 -> Doctor: Литвин С. С.
+  Shift: 4.1 -> Doctor: Бондар Н. Г.
+  Shift: 4.2 -> Doctor: Гнатюк Н. Г.
+  Shift: 5.1 -> Doctor: Бондар Н. Г.
+  Shift: 5.2 -> Doctor: Бондар Н. Г.
+  Shift: 6.1 -> Doctor: Литвин Л. П.
+
+Cabinet: 337 - каб. лікаря
+  Shift: 4.2 -> Doctor: Бондар В. Т.
+  Shift: 6.1 -> Doctor: Петренко А. М.
+
+Cabinet: 361 - каб. лікаря
+  Shift: 5.1 -> Doctor: Бондар М. Ю.
+
+Cabinet: 436 - каб. лікаря
+  Shift: 1.1 -> Doctor: Романюк В. Т.
+  Shift: 1.2 -> Doctor: Іваненко О. О.
+  Shift: 2.1 -> Doctor: Іваненко О. О.
+  Shift: 2.2 -> Doctor: Сидоренко І. І.
+  Shift: 3.1 -> Doctor: Іваненко О. О.
+  Shift: 3.2 -> Doctor: Романюк Н. Г.
+  Shift: 4.2 -> Doctor: Гнатюк Я. М.
+  Shift: 5.1 -> Doctor: Сидоренко І. І.
+  Shift: 5.2 -> Doctor: Іваненко О. О.
+  Shift: 6.2 -> Doctor: Романюк Н. Г.
+
+Cabinet: 451 - каб. лікаря
+  Shift: 5.1 -> Doctor: Бондар О. О.
+
+Cabinet: 490 - каб. лікаря
+  Shift: 1.1 -> Doctor: Мельник С. С.
+  Shift: 3.1 -> Doctor: Іваненко К. В.
+  Shift: 3.2 -> Doctor: Петренко І. І.
+  Shift: 4.1 -> Doctor: Коваль О. О.
+  Shift: 6.1 -> Doctor: Сидоренко В. Т.
+
+Cabinet: 690 - каб. лікаря
+  Shift: 1.1 -> Doctor: Петренко С. С.
+  Shift: 1.2 -> Doctor: Мельник А. М.
+  Shift: 2.1 -> Doctor: Мельник С. С.
+  Shift: 2.2 -> Doctor: Петренко І. І.
+  Shift: 3.1 -> Doctor: Ткаченко О. О.
+  Shift: 3.2 -> Doctor: Ткаченко О. О.
+  Shift: 4.1 -> Doctor: Петренко С. С.
+  Shift: 4.2 -> Doctor: Мельник А. М.
+  Shift: 5.2 -> Doctor: Коваль О. О.
+  Shift: 6.1 -> Doctor: Іваненко К. В.
+  Shift: 6.2 -> Doctor: Петренко І. І.
+
+Cabinet: 695 - каб. лікаря
+  Shift: 1.1 -> Doctor: Гнатюк А. М.
+  Shift: 1.2 -> Doctor: Ткаченко К. В.
+  Shift: 2.1 -> Doctor: Гнатюк А. М.
+  Shift: 2.2 -> Doctor: Гнатюк В. Т.
+  Shift: 3.1 -> Doctor: Ткаченко В. Т.
+  Shift: 3.2 -> Doctor: Бондар І. І.
+  Shift: 4.1 -> Doctor: Ткаченко В. Т.
+  Shift: 5.2 -> Doctor: Гнатюк А. М.
+  Shift: 6.1 -> Doctor: Гнатюк В. Т.
+
+Cabinet: 744 - каб. лікаря
+  Shift: 1.1 -> Doctor: Бондар А. М.
+  Shift: 1.2 -> Doctor: Бондар Л. П.
+  Shift: 2.2 -> Doctor: Гнатюк І. І.
+  Shift: 3.1 -> Doctor: Петренко А. М.
+  Shift: 3.2 -> Doctor: Бондар В. Т.
+  Shift: 4.1 -> Doctor: Литвин Л. П.
+  Shift: 4.2 -> Doctor: Петренко А. М.
+  Shift: 5.1 -> Doctor: Петренко А. М.
+  Shift: 6.1 -> Doctor: Гнатюк І. І.
+
+Cabinet: 749 - каб. лікаря
+  Shift: 1.1 -> Doctor: Мельник К. В.
+  Shift: 1.2 -> Doctor: Ткаченко І. І.
+  Shift: 2.1 -> Doctor: Петренко Н. Г.
+  Shift: 2.2 -> Doctor: Литвин І. І.
+  Shift: 3.1 -> Doctor: Бондар А. М.
+  Shift: 3.2 -> Doctor: Литвин М. Ю.
+  Shift: 4.1 -> Doctor: Ткаченко І. І.
+  Shift: 4.2 -> Doctor: Бондар А. М.
+  Shift: 5.1 -> Doctor: Литвин М. Ю.
+  Shift: 5.2 -> Doctor: Литвин М. Ю.
+  Shift: 6.1 -> Doctor: Литвин І. І.
+  Shift: 6.2 -> Doctor: Петренко К. В.
+
+Cabinet: 762 - каб. лікаря
+  Shift: 2.2 -> Doctor: Мельник М. Ю.
+  Shift: 4.2 -> Doctor: Бондар О. О.
+  Shift: 5.1 -> Doctor: Литвин А. М.
+  Shift: 5.2 -> Doctor: Бондар О. О.
+
+Cabinet: 765 - каб. лікаря
+  Shift: 2.2 -> Doctor: Іваненко О. О.
+
+Cabinet: 784 - каб. лікаря
+  Shift: 1.1 -> Doctor: Бондар Н. Г.
+
+Cabinet: 786 - каб. лікаря
+  Shift: 3.2 -> Doctor: Литвин І. І.
+
+Cabinet: 806 - каб. лікаря
+  Shift: 1.1 -> Doctor: Коваль О. О.
+  Shift: 1.2 -> Doctor: Петренко І. І.
+  Shift: 2.1 -> Doctor: Петренко І. І.
+  Shift: 2.2 -> Doctor: Сидоренко В. Т.
+  Shift: 3.1 -> Doctor: Сидоренко В. Т.
+  Shift: 3.2 -> Doctor: Коваль О. О.
+  Shift: 4.1 -> Doctor: Мельник С. С.
+  Shift: 4.2 -> Doctor: Ткаченко О. О.
+  Shift: 5.2 -> Doctor: Іваненко К. В.
+  Shift: 6.1 -> Doctor: Гнатюк О. О.
+
+Cabinet: 825 - каб. лікаря
+  Shift: 3.2 -> Doctor: Петренко Н. Г.
+
+Cabinet: 844 - каб. лікаря
+  Shift: 1.1 -> Doctor: Ткаченко М. Ю.
+  Shift: 2.2 -> Doctor: Ткаченко Я. М.
+  Shift: 3.1 -> Doctor: Гнатюк О. О.
+  Shift: 3.2 -> Doctor: Петренко О. О.
+  Shift: 4.1 -> Doctor: Ткаченко Я. М.
+  Shift: 4.2 -> Doctor: Петренко О. О.
+  Shift: 5.1 -> Doctor: Литвин К. В.
+  Shift: 5.2 -> Doctor: Бондар С. С.
+  Shift: 6.1 -> Doctor: Коваль М. Ю.
+  Shift: 6.2 -> Doctor: Ткаченко Я. М.
+
+Cabinet: 861 - каб. лікаря
+  Shift: 3.2 -> Doctor: Мельник К. В.
+
+Cabinet: 872 - каб. лікаря
+  Shift: 1.2 -> Doctor: Ткаченко С. С.
+  Shift: 2.1 -> Doctor: Коваль І. І.
+  Shift: 3.2 -> Doctor: Романюк М. Ю.
+  Shift: 4.1 -> Doctor: Ткаченко С. С.
+  Shift: 4.2 -> Doctor: Романюк М. Ю.
+  Shift: 5.1 -> Doctor: Коваль Я. М.
+  Shift: 5.2 -> Doctor: Коваль Я. М.
+  Shift: 6.1 -> Doctor: Коваль І. І.
+
+Cabinet: 888 - каб. лікаря
+  Shift: 1.2 -> Doctor: Бондар І. І.
+  Shift: 2.2 -> Doctor: Сидоренко С. С.
+  Shift: 3.1 -> Doctor: Ткаченко К. В.
+  Shift: 4.1 -> Doctor: Сидоренко С. С.
+  Shift: 5.2 -> Doctor: Сидоренко С. С.
+  Shift: 6.1 -> Doctor: Ткаченко К. В.
+
+Cabinet: 890 - каб. лікаря
+  Shift: 1.1 -> Doctor: Романюк М. Ю.
+  Shift: 1.2 -> Doctor: Литвин Л. П.
+  Shift: 2.1 -> Doctor: Мельник В. Т.
+  Shift: 2.2 -> Doctor: Мельник В. Т.
+  Shift: 3.1 -> Doctor: Бондар Л. П.
+  Shift: 3.2 -> Doctor: Литвин Л. П.
+  Shift: 4.1 -> Doctor: Мельник В. Т.
+  Shift: 4.2 -> Doctor: Романюк Л. П.
+  Shift: 5.1 -> Doctor: Бондар А. М.
+  Shift: 5.2 -> Doctor: Гнатюк Н. Г.
+  Shift: 6.1 -> Doctor: Іваненко Н. Г.
+  Shift: 6.2 -> Doctor: Романюк Л. П.
+
+Cabinet: 908 - каб. лікаря
+  Shift: 1.2 -> Doctor: Сидоренко А. М.
+  Shift: 4.2 -> Doctor: Коваль І. І.
+  Shift: 5.1 -> Doctor: Коваль І. І.
+
+Cabinet: 920 - каб. лікаря
+  Shift: 1.1 -> Doctor: Литвин С. С.
+  Shift: 3.2 -> Doctor: Петренко К. В.
+  Shift: 4.1 -> Doctor: Петренко Я. М.
+  Shift: 4.2 -> Doctor: Литвин І. І.
+  Shift: 6.1 -> Doctor: Мельник К. В.
+
+Cabinet: 936 - каб. лікаря
+  Shift: 1.1 -> Doctor: Ткаченко С. С.
+  Shift: 1.2 -> Doctor: Гнатюк Н. Г.
+  Shift: 2.1 -> Doctor: Ткаченко К. В.
+  Shift: 2.2 -> Doctor: Гнатюк Н. Г.
+  Shift: 3.1 -> Doctor: Ткаченко Я. М.
+  Shift: 3.2 -> Doctor: Ткаченко С. С.
+  Shift: 4.1 -> Doctor: Ткаченко К. В.
+  Shift: 4.2 -> Doctor: Ткаченко С. С.
+  Shift: 5.1 -> Doctor: Бондар С. С.
+  Shift: 5.2 -> Doctor: Литвин С. С.
+  Shift: 6.1 -> Doctor: Литвин С. С.
+
+Cabinet: 949 - каб. лікаря
+  Shift: 5.2 -> Doctor: Сидоренко Н. Г.
+
+Cabinet: 953 - каб. лікаря
+  Shift: 5.2 -> Doctor: Мельник В. Т.
+
+Cabinet: 966 - каб. лікаря
+  Shift: 1.1 -> Doctor: Сидоренко А. М.
+  Shift: 1.2 -> Doctor: Литвин О. О.
+  Shift: 2.1 -> Doctor: Іваненко Н. Г.
+  Shift: 3.1 -> Doctor: Сидоренко Я. М.
+  Shift: 3.2 -> Doctor: Литвин О. О.
+  Shift: 4.1 -> Doctor: Коваль І. І.
+  Shift: 4.2 -> Doctor: Сидоренко Я. М.
+  Shift: 5.1 -> Doctor: Сидоренко А. М.
+  Shift: 5.2 -> Doctor: Сидоренко А. М.
+  Shift: 6.1 -> Doctor: Сидоренко А. М.
+  Shift: 6.2 -> Doctor: Сидоренко А. М.
+
+Cabinet: 985 - каб. лікаря
+  Shift: 1.1 -> Doctor: Мельник Н. Г.
+  Shift: 1.2 -> Doctor: Мельник Н. Г.
+  Shift: 3.1 -> Doctor: Іваненко Я. М.
+  Shift: 3.2 -> Doctor: Сидоренко Н. Г.
+  Shift: 4.1 -> Doctor: Іваненко Я. М.
+  Shift: 5.1 -> Doctor: Сидоренко Н. Г.
+  Shift: 5.2 -> Doctor: Сидоренко Я. М.
+  Shift: 6.1 -> Doctor: Сидоренко Н. Г.
+  Shift: 6.2 -> Doctor: Сидоренко Н. Г.
+
+Cabinet: 995 - каб. лікаря
+  Shift: 1.2 -> Doctor: Сидоренко С. С.
+  Shift: 2.2 -> Doctor: Ткаченко К. В.
+

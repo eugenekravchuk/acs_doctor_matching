@@ -8,7 +8,7 @@ from collections import defaultdict
 doctors = []
 doctor_prefs = {}
 doctor_needed = {}
-with open("../data/doctor_prefs.csv", encoding="utf-8") as f:
+with open("../data/doctors_schedule_160.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     header = next(reader)  # e.g., ["doctor", "number_of_shifts", "1", "2", ..., "12"]
     for row in reader:
@@ -21,7 +21,7 @@ with open("../data/doctor_prefs.csv", encoding="utf-8") as f:
 # Load doctor specialties.
 # File format: doctor,specialty   (with specialty given as a list, e.g., "['Терапія']")
 doctor_specialties = {}
-with open("../data/doctors_specialities.csv", encoding="utf-8") as f:
+with open("../data/doctors_160.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
@@ -32,7 +32,7 @@ with open("../data/doctors_specialities.csv", encoding="utf-8") as f:
 # Load cabinet (room) specialties.
 # File format: room,specialty   (we enumerate the rows to assign a cabinet id)
 cabinet_info = {}
-with open("../data/rooms_specialities.csv", encoding="utf-8") as f:
+with open("../data/rooms_80.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     next(reader)
     for i, row in enumerate(reader, start=1):
