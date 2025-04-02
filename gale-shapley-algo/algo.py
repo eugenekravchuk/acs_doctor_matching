@@ -13,7 +13,7 @@ with open("../data/doctors_schedule_160.csv", encoding="utf-8") as f:
     header = next(reader)  # e.g., ["doctor", "number_of_shifts", "1", "2", ..., "12"]
     for row in reader:
         doctor = row[0].strip()
-        doctors.append(doctor)
+        doctors.append(doctor)  
         doctor_needed[doctor] = int(row[1])
         # Each doctor's preferences is a list of shift codes (e.g., "5.2")
         doctor_prefs[doctor] = [s.strip() for s in row[2:]]
