@@ -7,6 +7,8 @@ Scheduling doctors efficiently is a complex task involving:
 - Doctor availability & preferences
 - Cabinet specialties
 
+## Theoretical part
+All our work, ideas, conversations with mentor, future plans you can find in ІдеїАлгоритму.pdf
 
 ## Algorithms
 
