@@ -91,7 +91,7 @@ void loadCabinetInfo(const std::string& filename) {
 void initializeAssignments() {
     for (const auto& [cabId, _] : cabinets) {
         for (const auto& shift : allShifts) {
-            assignments[{cabId, shift}] = ""; // Initially unassigned
+            assignments[{cabId, shift}] = "";
         }
     }
 }
