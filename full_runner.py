@@ -46,6 +46,8 @@ for week in range(1, NUM_WEEKS + 1):
 
     final_path = f"weekly_schedules/week_{week}.txt"
     if best_file and os.path.exists(best_file):
+        if os.path.exists(final_path):
+            os.remove(final_path)
         os.rename(best_file, final_path)
 
 def parse_schedule(filepath, week_number):
