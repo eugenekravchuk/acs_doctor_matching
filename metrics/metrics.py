@@ -4,9 +4,8 @@ import re
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-prefs_df = pd.read_csv("data/doctors_schedule_160.csv")
+prefs_df = pd.read_csv("../data/doctors_schedule_160.csv")
 
-# Створимо мапу: лікар -> {зміна (str): ранг}
 doctor_preferences = {}
 shift_counts = {}
 for _, row in prefs_df.iterrows():
@@ -15,12 +14,12 @@ for _, row in prefs_df.iterrows():
     doctor_preferences[name] = {str(shift).strip(): i + 1 for i, shift in enumerate(prefs)}
     shift_counts[name] = int(row["number_of_shifts"])
 
-with open("schedule_output.txt", "r", encoding="utf-8") as f:
+with open("../result/final_schedule.txt", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
 doctor_assignments = defaultdict(list)
 for line in lines:
-    match = re.match(r"\s*Shift: (\S+) -> Doctor: (.+)", line)
+    match = re.match(r"\s*Shift:\s*(\S+)\s*->\s*Doctor:\s*(.+)", line)
     if match:
         shift, doctor = match.groups()
         doctor_assignments[doctor.strip()].append(shift.strip())
