@@ -6,7 +6,7 @@ doctor_prefs = {}
 doctor_needed = {}
 doctor_specialties = {}
 
-with open("../data/dorctors_prefs.csv", encoding="utf-8") as f:
+with open("../data/doctor_prefs.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     headers = next(reader)
     for row in reader:
@@ -84,7 +84,20 @@ while True:
 
 # === Step 5: Output results ===
 
-for shift, doctor in sorted(assignments.items()):
-    room = shift_info.get(shift.split(".")[0], {}).get("room", "?")
-    specialty = shift_info.get(shift.split(".")[0], {}).get("specialty", ["?"])[0]
-    print(f"Doctor: {doctor:25} -> Shift: {shift:4} Room: {room:30} Specialty: {specialty}")
+room_schedule = defaultdict(list)
+
+for shift, doctor in assignments.items():
+    room_id = shift.split(".")[0]
+    room = shift_info.get(room_id, {}).get("room", "?")
+    specialty = shift_info.get(room_id, {}).get("specialty", ["?"])[0]
+    room_schedule[room].append((shift, doctor, specialty))
+
+with open("schedule_output.txt", "w", encoding="utf-8") as out:
+    for room in sorted(room_schedule):
+        out.write(f"Room: {room}\n")
+        schedule = sorted(room_schedule[room], key=lambda x: tuple(map(int, x[0].split("."))))
+        for shift, doctor, specialty in schedule:
+            out.write(f"  Shift: {shift:4} -> Doctor: {doctor:25} Specialty: {specialty}\n")
+        out.write("\n")
+
+print("Schedule written to schedule_output.txt")

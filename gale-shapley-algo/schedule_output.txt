@@ -1,0 +1,24 @@
+Room: 530-філ3-рецепція
+  Shift: 1.1  -> Doctor: Іллюшина С. С.            Specialty: Терапія
+  Shift: 1.2  -> Doctor: Легензова О. М.           Specialty: Терапія
+
+Room: 531 - каб. лікаря
+  Shift: 2.1  -> Doctor: Синишин Ю. І.             Specialty: Терапія
+  Shift: 2.2  -> Doctor: Лазаренко І.І.            Specialty: Терапія
+
+Room: 532 - стерилізаційна
+  Shift: 3.1  -> Doctor: Лук'янченко Н. Ю.         Specialty: Терапія
+  Shift: 3.2  -> Doctor: Кудріна Н. Г.             Specialty: Терапія
+
+Room: 536 - каб. лікаря гінеколога
+  Shift: 4.1  -> Doctor: Аль-Сехлі С. М.           Specialty: Гінекологія
+  Shift: 4.2  -> Doctor: Синишин Ю. І.             Specialty: Гінекологія
+
+Room: 537 - каб. лікаря
+  Shift: 5.1  -> Doctor: Подоляк Т.М.              Specialty: Хірургія
+  Shift: 5.2  -> Doctor: Лазаренко І.І.            Specialty: Хірургія
+
+Room: 538 - каб. лікаря
+  Shift: 6.1  -> Doctor: Дуб А. І.                 Specialty: Терапія
+  Shift: 6.2  -> Doctor: Пелецька О.В.             Specialty: Терапія
+
