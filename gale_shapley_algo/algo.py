@@ -48,7 +48,7 @@ def read_cabinet_info(filepath: str) -> Dict[str, Dict]:
 def generate_schedule(doctors, doctor_needed, doctor_prefs, doctor_specialties, cabinet_info):
     available_shifts = {}
     for cabinet_id in cabinet_info:
-        for day in range(1, 7):
+        for day in range(1, 4):
             for sh in range(1, 3):
                 shift_code = f"{day}.{sh}"
                 available_shifts[(cabinet_id, shift_code)] = None

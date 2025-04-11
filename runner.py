@@ -19,9 +19,9 @@ def print_progress_bar(iteration, total, prefix='', length=50):
 for i in range(NUM_ITERATIONS):
     output_file = f"result/output_{i}.txt"
     happiness = run_scheduler(
-        "./data/doctors_schedule_160.csv",
-        "./data/doctors_160.csv",
-        "./data/rooms_80.csv",
+        "./data/doctor_prefs.csv",
+        "./data/doctor_specialities.csv",
+        "./data/rooms_specialities.csv",
         output_file
     )
 
