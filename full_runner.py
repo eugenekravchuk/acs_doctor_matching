@@ -7,9 +7,9 @@ from gale_shapley_algo.algo import run_scheduler
 NUM_WEEKS = 4
 NUM_ITERATIONS = 100
 DATA_PATHS = (
-    "./data/doctors_schedule_160.csv",
-    "./data/doctors_160.csv",
-    "./data/rooms_80.csv",
+    "./data/doctor_prefs.csv",
+    "./data/doctor_specialities.csv",
+    "./data/rooms_specialities.csv",
 )
 
 # === КАТАЛОГИ ===
