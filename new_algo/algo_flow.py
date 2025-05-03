@@ -1,6 +1,11 @@
 import pandas as pd
 import networkx as nx
 import itertools
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from maximum_flow_impl import custom_maximum_flow
 
 def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozklad_optimized.txt") -> str:
     df = pd.read_csv(input_csv_path)
@@ -10,8 +15,7 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
     def split_cabinets(cab_str):
         parts = []
         for c in str(cab_str).split(','):
-            for sub in c.split('+'):
-                parts.append(sub.strip())
+            parts.append(c.strip())
         return parts
 
     G = nx.DiGraph()
@@ -21,7 +25,7 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
 
     cabinet_shift_nodes = []
     cabinet_set = set()
-    for row in df['Кабінети']:
+    for row in df['Cabinets']:
         cabinet_set.update(split_cabinets(row))
     cabinet_list = sorted(cabinet_set)
 
@@ -29,16 +33,16 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
         for shift in all_shift_ids:
             node = f"{cab}|{shift}"
             G.add_edge(node, sink, capacity=1)
-            cabinet_shift_nodes.append((cab, shift, node))
+            cabinet_shift_nodes.append((cab, shift, node))  
 
     for _, row in df.iterrows():
-        doctor = row['Лікар']
+        doctor = row['Doctor']
         doctor_node = f"D|{doctor}"
-        max_shifts = int(row['Максимальна клк змін']) if pd.notna(row['Максимальна клк змін']) else len(all_shift_ids)
+        max_shifts = int(row['MaxShifts']) if pd.notna(row['MaxShifts']) else len(all_shift_ids)
         G.add_edge(source, doctor_node, capacity=max_shifts)
 
-        possible_cabs = split_cabinets(row['Кабінети'])
-        forbidden = set(map(str.strip, str(row['Неможливі зміни']).split(','))) if pd.notna(row['Неможливі зміни']) else set()
+        possible_cabs = split_cabinets(row['Cabinets'])
+        forbidden = set(map(str.strip, str(row['ForbiddenShifts']).split(','))) if pd.notna(row['ForbiddenShifts']) else set()
 
         for shift in all_shift_ids:
             d_shift_node = f"{doctor}|{shift}"
@@ -48,10 +52,18 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
                 if shift_id == shift and cab in possible_cabs and shift not in forbidden:
                     G.add_edge(d_shift_node, node, capacity=1)
 
-    flow_value, flow_dict = nx.maximum_flow(G, source, sink)
+    flow_value, flow_dict = custom_maximum_flow(G, source, sink)
+
+    for _, row in df.iterrows():
+        doctor = row['Doctor']
+        min_required = int(row['MinShifts']) if pd.notna(row.get('MinShifts')) else 0
+        doctor_node = f"D|{doctor}"
+        assigned_shifts = sum(flow_dict.get(doctor_node, {}).values())
+        if assigned_shifts < min_required:
+            print(f"Лікар {doctor} має лише {assigned_shifts} змін (мінімум: {min_required})")
 
     schedule = {cab: {} for cab in cabinet_list}
-    for doctor in df['Лікар']:
+    for doctor in df['Doctor']:
         for shift in all_shift_ids:
             d_shift_node = f"{doctor}|{shift}"
             doctor_node = f"D|{doctor}"
@@ -60,6 +72,7 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
                     if f > 0 and '|' in target:
                         cab, shift_id = target.split('|')
                         schedule[cab][shift_id] = doctor
+
 
     with open(output_path, "w", encoding="utf-8") as f:
         for cab in cabinet_list:
