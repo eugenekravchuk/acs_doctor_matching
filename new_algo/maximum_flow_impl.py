@@ -133,9 +133,7 @@ def min_cost_max_flow(G: nx.DiGraph, source: str, sink: str):
     flow_dict = defaultdict(dict)
 
     while True:
-        print(1)
         cost, path = bellman_ford(residual, costs, source, sink)
-        print(f"Path found: {path}, Cost: {cost}")
 
         if path is None:
             break
