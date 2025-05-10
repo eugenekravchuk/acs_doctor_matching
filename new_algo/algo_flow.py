@@ -45,7 +45,6 @@ def generate_preference_schedule_from_csv(input_csv_path: str, loc_cabs_path: st
     necessary_shifts = {}
 
     for _, row in df.iterrows():
-
         doctor = row['Doctor']
         costs[doctor] = {}
         specs = split_data(row['Specialization'])
@@ -60,7 +59,13 @@ def generate_preference_schedule_from_csv(input_csv_path: str, loc_cabs_path: st
         obligatory = set('|'.join([data[0], data[1], data[2][2:]]) for data in obligatory)
         necessary_shifts[doctor] = obligatory
 
-        G.add_edge(source, doctor_node, capacity=max_shifts)
+        if min_shifts > 0:
+            pre_node = f"PRE|{doctor}"
+            G.add_edge(source, pre_node, capacity=min_shifts)
+            G.add_edge(pre_node, doctor_node, capacity=min_shifts)
+
+        if max_shifts > min_shifts:
+            G.add_edge(source, doctor_node, capacity=max_shifts - min_shifts)
 
         for i, loc in enumerate(locs):
 
@@ -138,10 +143,4 @@ def generate_monthly_schedule_from_csv(input_csv_path: str, loc_cabs_path: str, 
             doctor_penalty[doctor] = assigned_shifts // 2
     
     print('Generated monthly schedule')
-
-# print(generate_monthly_schedule_from_csv(
-#     "C:\\Users\\Admin\\Desktop\\AKS\\Project\\acs_doctor_matching\\data\\new_data\\loc_data_with_specializations.csv",
-#     "C:\\Users\\Admin\\Desktop\\AKS\\Project\\acs_doctor_matching\\data\\new_data\\rooms_locations_updated.json",
-#     "C:\\Users\\Admin\\Desktop\\AKS\\Project\\acs_doctor_matching\\result\\"
-# ))
         
