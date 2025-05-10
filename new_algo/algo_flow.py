@@ -39,8 +39,17 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
     for _, row in df.iterrows():
         doctor = row['Doctor']
         doctor_node = f"D|{doctor}"
+        
         max_shifts = int(row['MaxShifts']) if pd.notna(row['MaxShifts']) else len(all_shift_ids)
-        G.add_edge(source, doctor_node, capacity=max_shifts)
+        min_shifts = int(row['MinShifts']) if pd.notna(row['MinShifts']) else 0
+
+        if min_shifts > 0:
+            pre_node = f"PRE|{doctor}"
+            G.add_edge(source, pre_node, capacity=min_shifts)
+            G.add_edge(pre_node, doctor_node, capacity=min_shifts)
+
+        if max_shifts > min_shifts:
+            G.add_edge(source, doctor_node, capacity=max_shifts - min_shifts)
 
         possible_cabs = split_cabinets(row['Cabinets'])
         forbidden = set(map(str.strip, str(row['ForbiddenShifts']).split(','))) if pd.notna(row['ForbiddenShifts']) else set()
@@ -54,14 +63,6 @@ def generate_schedule_from_csv(input_csv_path: str, output_path: str = "./rozkla
                     G.add_edge(d_shift_node, node, capacity=1)
 
     flow_value, flow_dict = custom_maximum_flow(G, source, sink)
-
-    for _, row in df.iterrows():
-        doctor = row['Doctor']
-        min_required = int(row['MinShifts']) if pd.notna(row.get('MinShifts')) else 0
-        doctor_node = f"D|{doctor}"
-        assigned_shifts = sum(flow_dict.get(doctor_node, {}).values())
-        if assigned_shifts < min_required:
-            print(f"Лікар {doctor} має лише {assigned_shifts} змін (мінімум: {min_required})")
 
     schedule = {cab: {} for cab in cabinet_list}
     for doctor in df['Doctor']:
@@ -115,14 +116,14 @@ def generate_preference_schedule_from_csv(input_csv_path: str, loc_cabs_path: st
 
     for _, row in df.iterrows():
 
-        doctor = row['Лікар']
-        specs = split_data(row['Спеціалізація'])
-        locs = split_data(row['Кабінети'])
+        doctor = row['Doctor']
+        specs = split_data(row['Specialization'])
+        locs = split_data(row['Cabinets'])
         doctor_node = f"D|{doctor}"
-        max_shifts = int(row['Максимальна клк змін']) if pd.notna(row['Максимальна клк змін']) else len(all_shift_ids)
-        forbidden = set(split_data(row['Неможливі зміни'])) if pd.notna(row['Неможливі зміни']) else set()
-        #TODO: necessary shifts
-        #TODO: min shifts
+        max_shifts = int(row['MaxShifts']) if pd.notna(row['MaxShifts']) else len(all_shift_ids)
+        forbidden = set(split_data(row['ForbiddenShifts'])) if pd.notna(row['ForbiddenShifts']) else set()
+        required = set(split_data(row['RequiredShifts'])) if pd.notna(row['RequiredShifts']) else set()
+        min_shifts = int(row['MinShifts']) if pd.notna(row['MinShifts']) else 0
 
         G.add_edge(source, doctor_node, capacity=max_shifts)
 
@@ -141,16 +142,8 @@ def generate_preference_schedule_from_csv(input_csv_path: str, loc_cabs_path: st
 
     _, total_cost, flow_dict = min_cost_max_flow(G, source, sink)
 
-    for _, row in df.iterrows():
-        doctor = row['Лікар']
-        min_required = int(row['Мінімальна клк змін']) if pd.notna(row.get('Мінімальна клк змін')) else 0
-        doctor_node = f"D|{doctor}"
-        assigned_shifts = sum(flow_dict.get(doctor_node, {}).values())
-        if assigned_shifts < min_required:
-            print(f"Лікар {doctor} має лише {assigned_shifts} змін (мінімум: {min_required})")
-
     schedule = {}
-    for doctor in df['Лікар']:
+    for doctor in df['Doctor']:
         doctor_node = f"D|{doctor}"
         if doctor_node not in flow_dict:
             continue
