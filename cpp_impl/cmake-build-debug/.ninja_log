@@ -1,0 +1,6 @@
+# ninja log v6
+5012	8602	7687820860108583	schedule_gen.exe	7327d2bd2557ab50
+2	981	7687821766610427	build.ninja	d05566e6db423fc4
+6	731	7687814038650932	CMakeFiles/schedule_gen.dir/main.cpp.obj	2830b50aeda9b1ec
+34	5011	7687820810340309	CMakeFiles/schedule_gen.dir/src/schedule_generator.cpp.obj	3e33b6ce39aca1b3
+17	1475	7687814038754280	CMakeFiles/schedule_gen.dir/src/min_cost_max_flow.cpp.obj	64f44a7c396d7fb7
