@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/schedule_gen.dir/main.cpp.o CMakeFiles/schedule_gen.dir/src/schedule_generator.cpp.o CMakeFiles/schedule_gen.dir/src/min_cost_max_flow.cpp.o  -o schedule_gen  -lpthread 

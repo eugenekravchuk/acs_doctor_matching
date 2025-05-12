@@ -85,7 +85,6 @@ std::tuple<int, double, Graph> min_cost_max_flow(
     int max_flow = 0;
     double min_cost = 0;
 
-    // Map of (from → to) → flow
     std::map<std::pair<std::string, std::string>, int> flow_map;
 
     std::vector<std::string> path;
@@ -94,7 +93,6 @@ std::tuple<int, double, Graph> min_cost_max_flow(
     while (bellman_ford(residual, costs, doctor_penalty, cabinet_penalty, necessary_shifts, source, sink, path, parent)) {
         int path_flow = std::numeric_limits<int>::max();
 
-        // Find bottleneck
         for (size_t i = 0; i + 1 < path.size(); ++i) {
             const std::string& u = path[i];
             const std::string& v = path[i + 1];
@@ -106,7 +104,6 @@ std::tuple<int, double, Graph> min_cost_max_flow(
             }
         }
 
-        // Apply flow
         for (size_t i = 0; i + 1 < path.size(); ++i) {
             const std::string& u = path[i];
             const std::string& v = path[i + 1];
@@ -136,7 +133,6 @@ std::tuple<int, double, Graph> min_cost_max_flow(
         max_flow += path_flow;
     }
 
-    // Construct flow_dict from flow_map
     Graph flow_dict;
     for (const auto& entry : flow_map) {
         const std::string& from = entry.first.first;

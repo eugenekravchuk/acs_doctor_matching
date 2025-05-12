@@ -1,3 +1,0 @@
-/mnt/c/D/UCU/ACS/acs_doctor_matching/cpp_impl/cmake-build-wsl-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/D/UCU/ACS/acs_doctor_matching/cpp_impl/cmake-build-wsl-debug/CMakeFiles/edit_cache.dir
-/mnt/c/D/UCU/ACS/acs_doctor_matching/cpp_impl/cmake-build-wsl-debug/CMakeFiles/schedule_gen.dir

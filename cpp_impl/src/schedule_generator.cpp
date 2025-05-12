@@ -31,7 +31,7 @@ string join(const string& a, const string& b, const string& c, char sep = '|') {
 void load_inputs(const string& csv_path, const string& json_path,
                  vector<DoctorRow>& doctors,
                  map<string, map<string, vector<string>>>& loc_spec_cabs) {
-    // Load CSV
+
     io::CSVReader<7, io::trim_chars<' '>, io::double_quote_escape<',','"'>, io::throw_on_overflow> in(csv_path);
     in.read_header(io::ignore_extra_column,
         "Doctor", "Cabinets", "MinShifts", "MaxShifts", "ForbiddenShifts", "RequiredShifts", "Specialization");
@@ -55,7 +55,6 @@ void load_inputs(const string& csv_path, const string& json_path,
         doctors.push_back(d);
     }
 
-    // Load JSON
     ifstream jfile(json_path);
     if (!jfile) {
         cerr << "Failed to open JSON file: " << json_path << endl;
