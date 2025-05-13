@@ -4,18 +4,20 @@ ACS project for the clinic of saint Paraskeva. The aim of the project is to crea
 ## Problem Statement
 
 Scheduling doctors efficiently is a complex task involving:
-- Doctor availability & preferences
+- Doctor availability, specialties & preferences
+- Different locations around the city
 - Cabinet specialties
 
 ## Theoretical part
-All our work, ideas, conversations with mentor, future plans you can find in ІдеїАлгоритму.pdf
+All our work, ideas, conversations with mentor, future plans you can find in the report of our work available in **aks2025.pdf**
 
 ## Algorithms
 
-- Gale-Shapley algo - Python and C++ implementation
-- basic SPA - Python
+- Gale-Shapley algo - Python and C++ implementation (/gale_shapley_algo)
+- Basic SPA - Python (/basic_algo)
+- Flow-based algorithm - Python and C++ implementation (/new_algo and /cpp_impl)
 
-## Metrics
+## Metrics for preferences including algorithms
 
 Each doctor is evaluated using a happiness score:  
 - Preferences ranked at the top = more "satisfaction"
